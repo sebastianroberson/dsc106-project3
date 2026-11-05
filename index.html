@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lightning Around the Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">DSC 106 · Project 3 · GOES-16 Geostationary Lightning Mapper</p>
+      <h1>Lightning Around the Clock</h1>
+      <p class="dek">Where lightning strikes is only half the story. Drag the clock: storms over land build through
+        the afternoon and fade at night, but some spots over water, like Lake Maracaibo (the place with the most
+        lightning on Earth), peak after dark instead. Click any location to see its hour-by-hour profile.</p>
+    </header>
+
+    <section class="viz" aria-label="Interactive lightning explorer">
+      <div class="clock-row">
+        <button id="play" class="btn" aria-label="Play through the day">▶ Play</button>
+        <div class="slider-wrap">
+          <input id="hour" type="range" min="0" max="23" step="1" value="15" aria-label="Local solar hour">
+          <div class="slider-ticks" aria-hidden="true">
+            <span>12 am</span><span>6 am</span><span>12 pm</span><span>6 pm</span><span>11 pm</span>
+          </div>
+        </div>
+        <div class="clock" id="clock" aria-live="polite"></div>
+      </div>
+      <p class="clock-note">Every place on the map is shown at the <strong>same local solar hour</strong>
+        (sun time, from longitude), so this is not one instant: it is "<span id="everywhere">3 pm everywhere</span>".</p>
+
+      <div class="map-wrap" id="map-wrap">
+        <canvas id="map-canvas"></canvas>
+        <svg id="map-svg"></svg>
+        <div class="tooltip" id="map-tip" hidden></div>
+      </div>
+      <div class="legend" id="legend"></div>
+
+      <div class="profile-head">
+        <h2>Hour-by-hour profile</h2>
+        <p class="hint">Share of each place's lightning in each local hour · click the map to pin up to 4 places ·
+          click the chart to set the hour</p>
+        <div class="pins" id="pins"></div>
+      </div>
+      <div class="ts-wrap" id="ts-wrap">
+        <svg id="ts-svg"></svg>
+        <div class="tooltip" id="ts-tip" hidden></div>
+      </div>
+
+      <p class="note" id="data-note"></p>
+    </section>
+
+    <section class="writeup">
+      <h2>Write-up</h2>
+      <p class="todo">Draft for the final submission. Each team member should write these sections in their own words.</p>
+      <h3>Design rationale</h3>
+      <p class="todo">Encodings, color palettes, interaction choices, alternatives considered.</p>
+      <h3>Development process</h3>
+      <p class="todo">Who did what, people-hours, what took the most time.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
