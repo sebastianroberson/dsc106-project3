@@ -51,13 +51,30 @@
       <p class="note" id="data-note"></p>
     </section>
 
-    <section class="writeup">
-      <h2>Write-up</h2>
-      <p class="todo">Draft for the final submission. Each team member should write these sections in their own words.</p>
+    <section class="writeup" id="write-up" aria-labelledby="write-up-heading">
+      <h2 id="write-up-heading">Write-up</h2>
       <h3>Design rationale</h3>
-      <p class="todo">Encodings, color palettes, interaction choices, alternatives considered.</p>
+      <p>Our first map showed where lightning was concentrated in the August 2023 GOES-16 sample. We wanted to know when
+        those places were active and which ones broke the usual afternoon pattern. In the pinned profiles, Central Florida
+        peaks between 2 and 3 p.m. local solar time, while Lake Maracaibo and Kansas both peak between 2 and 3 a.m.
+        About 86% of the flashes around the lake fell between 6 p.m. and 6 a.m., compared with 12% around Central Florida.</p>
+      <p>We tried a map of each cell’s busiest hour and a set of four snapshots. The peak-hour map reduced each place to
+        one value and hid the rest of its daily pattern. The snapshots made the change visible at four points in the day.
+        The slider keeps that comparison on one map and lets you stop at any of the 24 local solar hours. Converting from
+        UTC to local solar time makes it possible to compare afternoon activity across longitudes.</p>
+      <p>Location sets the position on the map. The color runs from dark purple to bright yellow as the flash rate rises.
+        We use the same logarithmic scale throughout the day so weaker activity stays visible alongside dense hotspots.
+        The rates account for observation time and area, and pooling neighboring cells makes sparse hourly counts less
+        noisy. The profiles show each hour as a share of that location’s flashes, so a quieter place can still be compared
+        with an active one. A pin keeps its color in the map and chart, and the land and water lines give each location a
+        reference. Clicking the chart changes the map hour, so you can find a peak in the profile and immediately see where
+        else lightning is active at that hour.</p>
       <h3>Development process</h3>
-      <p class="todo">Who did what, people-hours, what took the most time.</p>
+      <p>For the checkpoint, we sampled satellite observations from one month and used six static plots to compare when
+        lightning peaked across the map. The final site loads the binned counts and draws each hour and each pinned profile
+        in the browser.</p>
+      <p>Kylan Huynh came up with the initial idea. Sebastian Roberson helped write the code for the interactive site.
+        Kevin Pyo made visualizations for the project and recorded the checkpoint video.</p>
     </section>
   </main>
 
